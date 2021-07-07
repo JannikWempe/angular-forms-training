@@ -35,7 +35,6 @@ export class SignupFormComponent implements OnInit {
         'first': [''],
         'last': ['', Validators.required]
       }),
-      'age': [undefined, Validators.min(0)],
       'addresses': this.fb.array([])
     })
   }
