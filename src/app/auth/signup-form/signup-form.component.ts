@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
-const USERNAME_BLACKLIST = ['mustermann']
-
 @Component({
   selector: 'app-signup-form',
   templateUrl: './signup-form.component.html',
@@ -22,10 +20,9 @@ export class SignupFormComponent implements OnInit {
   }
 
   initForm() {
+    // TODO: connect this form to the actual inputs in the html
+    // [ ] a change of the inputs in the UI is reflected in the form
     this.form = this.fb.group({
-      // TODO: create a custom validator "isForbiddenUsername"
-      // [ ] username is invalid if name is listed in USERNAME_BLACKLIST
-      // [ ] Error "Username xyz is not allowed." is only shown if custom validator is invalid
       'username': ['', Validators.required],
       'name': this.fb.group({
         'first': [''],
@@ -36,14 +33,11 @@ export class SignupFormComponent implements OnInit {
   }
 
   onAddAddress() {
-    (this.form.get('addresses') as FormArray).push(this.fb.group({
-      'street': ['', Validators.required],
-      'city': ['', Validators.required]
-    }))
+    // TODO: add a form group containing the following form fields to 'addresses'
   }
 
   onRemoveAddress(index: number) {
-    (this.form.get('addresses') as FormArray).removeAt(index);
+    // TODO: remove the form group with the given index from 'addresses'
   }
 
   onSubmit() {}
