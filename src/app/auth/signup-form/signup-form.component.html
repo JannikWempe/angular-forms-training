@@ -7,7 +7,6 @@
             <label for="username">Username</label>
             <input type="text" name="username" id="username" class="form-control" formControlName="username">
             <small
-              *ngIf="form.get('username')?.errors?.isForbiddenUsername"
               class="form-text text-danger">
                 Username {{ form.get('username')?.value }} is not allowed.
             </small>
