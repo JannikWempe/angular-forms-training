@@ -22,7 +22,7 @@
             <div *ngFor="let _ of addresses.controls; let i = index">
               <div class="d-flex align-items-center">
                 <h3 class="h4">Address {{ i + 1 }}</h3>
-                <button (click)="onRemoveAddress(i)" class="btn btn-outline-danger btn-sm ml-auto">remove</button>
+                <button class="btn btn-outline-danger btn-sm ml-auto">remove</button>
               </div>
               <div class="form-group">
                 <label [for]="'street' + i">Street</label>
@@ -34,7 +34,7 @@
               </div>
             </div>
           </div>
-          <button (click)="onAddAddress()" class="btn btn-outline-primary">add address</button>
+          <button  class="btn btn-outline-primary">add address</button>
         </div>
       </div>
       <button [disabled]="!form.pristine && !form.valid" class="btn btn-primary mt-5">signup</button>

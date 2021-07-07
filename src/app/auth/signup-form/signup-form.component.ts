@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-signup-form',
@@ -13,31 +13,21 @@ export class SignupFormComponent implements OnInit {
     return this.form.get('addresses') as FormArray;
   }
 
-  constructor(private fb: FormBuilder) {}
-
   ngOnInit() {
     this.initForm();
   }
 
   initForm() {
-    // TODO: connect this form to the actual inputs in the html
-    // [ ] a change of the inputs in the UI is reflected in the form
-    this.form = this.fb.group({
-      'username': ['', Validators.required],
-      'name': this.fb.group({
-        'first': [''],
-        'last': ['', Validators.required]
+    // TODO: rewrite this using FormBuilder
+    // Note: the form will not work yet, this will be the next task
+    this.form = new FormGroup({
+      'username': new FormControl(['', Validators.required]),
+      'name': new FormGroup({
+        'first': new FormControl(['']),
+        'last': new FormControl(['', Validators.required])
       }),
-      'addresses': this.fb.array([])
+      'addresses': new FormArray([])
     })
-  }
-
-  onAddAddress() {
-    // TODO: add a form group containing the following form fields to 'addresses'
-  }
-
-  onRemoveAddress(index: number) {
-    // TODO: remove the form group with the given index from 'addresses'
   }
 
   onSubmit() {}
