@@ -1,7 +1,7 @@
 import {Component, forwardRef, Input, OnInit} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 
-@Compon ent({
+@Component({
   selector: 'app-numeric-input',
   templateUrl: './numeric-input.component.html',
   styleUrls: ['./numeric-input.component.css'],
