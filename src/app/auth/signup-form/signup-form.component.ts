@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {AddressFormComponent} from "../address-form/address-form.component";
 
 const USERNAME_BLACKLIST = ['mustermann']
 
@@ -41,10 +42,7 @@ export class SignupFormComponent implements OnInit {
   }
 
   onAddAddress() {
-    (this.form.get('addresses') as FormArray).push(this.fb.group({
-      'street': ['', Validators.required],
-      'city': ['', Validators.required]
-    }))
+    (this.form.get('addresses') as FormArray).push(new FormControl())
   }
 
   onRemoveAddress(index: number) {

@@ -5,6 +5,7 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
 import { ReactiveFormsModule } from "@angular/forms";
 import { TextualInputComponent } from './textual-input/textual-input.component';
 import { NumericInputComponent } from './numeric-input/numeric-input.component';
+import { AddressFormComponent } from './address-form/address-form.component';
 
 
 
@@ -12,7 +13,8 @@ import { NumericInputComponent } from './numeric-input/numeric-input.component';
   declarations: [
     SignupFormComponent,
     TextualInputComponent,
-    NumericInputComponent
+    NumericInputComponent,
+    AddressFormComponent
   ],
   exports: [
     SignupFormComponent

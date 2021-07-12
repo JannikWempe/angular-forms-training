@@ -1,0 +1,13 @@
+<ng-container [formGroup]="form">
+  <div class="form-group" >
+    <label [for]="'street'">Street</label>
+    <input type="text" [name]="'street'" [id]="'street'" (blur)="propagateTouched()" class="form-control"
+           formControlName="street">
+  </div>
+  <div class="form-group">
+    <label [for]="'city'">City</label>
+    <input type="text" [name]="'city'" [id]="'city'" (blur)="propagateTouched()" class="form-control"
+           formControlName="city">
+  </div>
+</ng-container>
+
