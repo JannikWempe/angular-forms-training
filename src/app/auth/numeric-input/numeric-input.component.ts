@@ -1,17 +1,10 @@
-import {Component, forwardRef, Input, OnInit} from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
+import {Component, Input, Optional, Self} from '@angular/core';
+import {ControlValueAccessor, NgControl} from "@angular/forms";
 
 @Component({
   selector: 'app-numeric-input',
   templateUrl: './numeric-input.component.html',
-  styleUrls: ['./numeric-input.component.css'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => NumericInputComponent),
-      multi: true
-    }
-  ]
+  styleUrls: ['./numeric-input.component.css']
 })
 export class NumericInputComponent implements ControlValueAccessor {
   @Input() label!: string;
@@ -20,6 +13,18 @@ export class NumericInputComponent implements ControlValueAccessor {
 
   private propagateChange!: (_: any) => void;
   private propagateTouched!: () => void;
+
+  constructor(
+    @Optional() @Self() public ngControl: NgControl
+) {
+    if (ngControl != null) {
+      // Setting the value accessor directly (instead of using
+      // the providers) to avoid running into a circular import.
+      ngControl.valueAccessor = this;
+    }
+
+    console.log(ngControl)
+  }
 
   increment() {
     this.value++;
